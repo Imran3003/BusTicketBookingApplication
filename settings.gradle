@@ -1,2 +1,3 @@
 rootProject.name = 'BusTicketBooking'
-
+include ':QrGenerator'
+project(':QrGenerator').projectDir = new File('/home/admin/Idea-2023/QRGenerator/QrGenerator')
