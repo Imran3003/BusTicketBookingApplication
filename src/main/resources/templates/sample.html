@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" ></script>
+    <title>Sample</title>
+    <script>
+        window.onpageshow = function (event) {
+            if (event.persisted) {
+                location.reload();
+            }
+        };
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        #main {
+            overflow: hidden;
+            max-width: 1100px;
+            height: 500px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .myButton {
+            width: 50px;
+            display:inline-block;
+            background-color: whitesmoke;
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        #main
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .indiv
+        {
+            margin-left: 60px;
+            display: grid;
+            grid-template-columns: repeat(4, 6fr);
+            grid-column: 4;
+            grid-gap: 10px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            border: 1px solid black;
+            padding: 20px;
+        }
+        .btn {
+            position: relative;
+            top: -50px;
+            left: 30px;
+            width: 70px;
+            /*background-color: #4CAF50;*/
+            /*color: #ffffff;*/
+            text-decoration: none;
+            padding: 5px 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #container {
+        }
+        /*#main > div*/
+        /*{*/
+        /*    display: grid;*/
+        /*    */
+        /*}*/
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <h1 id="busNO">BUS NO : <strong th:text="${busno}" ></strong></h1>
+    <div id="main">
+        <div th:utext="${buttonHtml}" class="indiv"></div>
+        <div th:utext="${buttonHtml1}" class="indiv"></div>
+    </div>
+    <form id="myForm">
+        <button type="button" onclick="submitForm()" class="btn" disabled id="bookbtn">Book</button>
+    </form>
+</div>
+
+<script>
+  const map = new Map();
+
+  function changeColor(button) {
+    const value = button.getAttribute('value');
+    const originalColor = ''; // Set the original color here
+
+    if (!map.has(value)) {
+      if (map.size < 4) {
+        button.style.backgroundColor = 'green';
+        map.set(value, 'seatNo' + value);
+        console.log("Map", map);
+      }
+    } else {
+      button.style.backgroundColor = originalColor;
+      map.delete(value);
+      console.log("Map Size =", map.size);
+      console.log("Map", map);
+    }
+
+      if (map.size === 0)
+      {
+          var bookButton = document.getElementById("bookbtn");
+          bookButton.disabled = true;
+          bookButton.style.backgroundColor = '';
+          bookButton.style.color = "black";
+      }
+      else
+      {
+          var bookButton = document.getElementById("bookbtn");
+          bookButton.disabled = false;
+          bookButton.style.backgroundColor = "#4CAF50";
+          bookButton.style.color = "#ffffff";
+      }
+  }
+
+  function submitForm() {
+
+      var busNoElement = document.getElementById("busNO");
+      var busNo = busNoElement.querySelector("strong").textContent;
+      console.log(busNo);
+      map.set("busNo",busNo);
+    console.log("map",map);
+    let json = JSON.stringify(Object.fromEntries(map));
+    console.log("json::",json);
+       $.ajax(
+       {
+            url:"/submitMapData",
+            type:"POST",
+            data:json,
+            contentType:'application/json',
+            success:function(data)
+            {
+                console.log(data);
+              $("#container").empty().append(data);
+            },
+            error:function(data)
+            {
+                console.log(data);
+            }
+       }
+   )
+  }
+</script>
+
+</body>
+</html>

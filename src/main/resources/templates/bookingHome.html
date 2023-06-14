@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Welcome to Jolly Trip</title>
+  <script>
+    window.onpageshow = function (event) {
+      if (event.persisted) {
+        location.reload();
+      }
+    };
+  </script>
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333333;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      overflow: hidden;
+      max-width: 1100px;
+      height: 500px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn {
+      width: 300px;
+      background-color: #ffffff;
+      color: black;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+      font-size: 20px;
+    }
+    .btn:hover {
+      background-color: aliceblue;
+    }
+
+
+    .btn1 {
+      width: 100px;
+      background-color:#45a049;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <form action="/login">
+    <h1>Student Management System</h1>
+    <label>
+      <input name="username" placeholder="username" type="text" class="btn" required>
+    </label><br>
+    <label>
+      <input name="password" placeholder="password" type="password" class="btn" required>
+    </label><br>
+    <p id="errorMessage" th:text="${errorMessage}" style="color: red"></p>
+    <input type="submit" value="Login" class="btn1">
+  </form>
+
+  <form action="/register">
+    <input type="submit" value="Register" class="btn1">
+  </form>
+</div>
+</body>
+</html>

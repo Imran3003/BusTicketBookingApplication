@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Busses</title>
+
+  <script>
+    window.onpageshow = function (event) {
+      if (event.persisted) {
+        location.reload();
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color:greenyellow;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      overflow: auto;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      height: 100vh;
+    }
+
+    .btn {
+      width: 200px;
+      background-color: #ffffff;
+      color: black;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+      font-size: 12px;
+      line-height: 11px;
+      font-weight: bold;
+    }
+
+    .btn1 {
+      display: inline-block;
+      width: 100px;
+      background-color:#45a049;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color:ghostwhite;
+    }
+
+    th,td {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid black;
+    }
+    th
+    {
+      background-color:aqua;
+    }
+    tr:nth-child(even)
+    {
+      background-color: white;
+    }
+    tr:nth-child(odd)
+    {
+      background-color: rgb(202, 201, 201);
+    }
+    tr
+    {
+      line-height: 20px;
+    }
+
+    body
+    {
+      background-color:white;
+    }
+    table
+    {
+      background-color:black;
+      border: 1px solid black;
+    }
+
+    .tables
+    {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .indiv
+    {
+      margin-top: 20px;
+    }
+    #cancel
+    {
+      position: relative;
+      top: -15px;
+      left: 450px;
+    }
+  </style>
+
+</head>
+<body>
+<div class="tables">
+  <table >
+    <tr>
+      <th th:text="BusNo"></th>
+      <th th:text="BusName"></th>
+      <th th:text="From"></th>
+      <th th:text="To"></th>
+      <th th:text="Starting_Time"></th>
+      <th th:text="seatNo"></th>
+      <th></th>
+    </tr>
+    <tr th:each="data : ${busses}">
+      <td th:text="${data.busNo}"></td>
+      <td th:text="${data.busName}"></td>
+      <td th:text="${data.startingFrom}"></td>
+      <td th:text="${data.destination}"></td>
+      <td th:text="${data.busStartingTime}"></td>
+      <td th:text="${data.seatNo}"></td>
+      <td>
+        <a class="btn1" th:href="@{/cancelTicket(busNo=${data.busNo}, seatNo=${data.seatNo} ,passengerName=${data.Pname})}">Cancel</a>
+      </td>
+    </tr>
+  </table>
+
+</div>
+<div th:utext="${buttonHtml}" class="indiv"></div>
+
+</body>
+</html>
