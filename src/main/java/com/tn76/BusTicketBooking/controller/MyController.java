@@ -298,17 +298,10 @@ public class MyController
         }
         bus.setBookings(bookingsList);
         bus.setAvailableSeat(noOfSeats);
-        model.addAttribute("busNum",busNum);
         busRepo.save(bus);
+        model.addAttribute("busNum",busNum);
         modelAndView.setViewName("successfullyCreateNewBus.html");
         return modelAndView;
-    }
-
-    private void createBus()
-    {
-        createNewBus("Hail Trip",8663,"Tenkasi","Chennai","09-Jun-2023 : 7.00 PM","10-Jun-2023 : 6.30 AM",40,null);
-        createNewBus("JollyBus",1967,"Chennai","Tenkasi","10-Jun-2023 : 5.00 PM","11-Jun-2023 : 5.30 AM",40,null);
-
     }
 
     @RequestMapping("/showMyTickets")
