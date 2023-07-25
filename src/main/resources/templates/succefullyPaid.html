@@ -45,6 +45,18 @@
     display: inline-block;
     margin: 0 auto;
   }
+
+  .btn1 {
+    width: 100px;
+    background-color:#45a049;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
 </style>
 <body>
 <div class="card">
@@ -53,6 +65,9 @@
   </div>
   <h1>Success</h1>
   <p>We received your payment Your Tickets <b>Seat No :</b> '<strong th:text="${tickets}"></strong>' Successfully booked!</p>
+  <br>
+
+  <a class="btn1" href="/showBusses">Ok</a>
 </div>
 </body>
 </html>

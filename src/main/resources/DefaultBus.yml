@@ -1,0 +1,131 @@
+busses:
+  bus:
+    busNo : "4444"
+    busName : "Komban"
+    busReachingTime : "6.00PM"
+    busStartingTime : "7.00AM"
+    startingFrom : "Tenkasi"
+    destination : "Chennai"
+    availableSeat : "40"
+    bookings  :
+      -
+        seatNo: "1"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "2"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "3"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "4"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "5"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "6"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "7"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "8"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "9"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "10"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "11"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "12"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "13"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "14"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "15"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "16"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "17"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "18"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "19"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "20"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "21"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "22"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "23"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "24"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "25"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "26"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "27"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "28"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "29"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "30"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "31"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "32"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "33"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "34"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "35"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "36"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "37"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "38"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "39"
+        bookingStatus: "AVAILABLE"
+      -
+        seatNo: "40"
+        bookingStatus: "AVAILABLE"
+
