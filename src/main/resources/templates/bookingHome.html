@@ -65,6 +65,21 @@
       border-radius: 4px;
       transition: background-color 0.3s;
     }
+    #reg
+    {
+      position: absolute;
+      top: 40px;
+      left: 1100px;
+      background:gainsboro;
+      color: black;
+      height: 25px;
+      padding: 4px;
+      width: 80px;
+    }
+    #reg:hover
+    {
+      background: red;
+    }
 
   </style>
   <title></title>
@@ -72,7 +87,7 @@
 <body>
 <div class="container">
   <form action="/login">
-    <h1>Student Management System</h1>
+    <h1>BUS TICKET BOOKING</h1>
     <label>
       <input name="username" placeholder="username" type="text" class="btn" required>
     </label><br>
@@ -82,7 +97,9 @@
     <p id="errorMessage" th:text="${errorMessage}" style="color: red"></p>
     <input type="submit" value="Login" class="btn1">
   </form>
-
+  <form action="/register">
+    <input type="submit" value="Register" class="btn1" id="reg">
+  </form>
   <a class="forgetpassword" href="/forgetPasswordHome">Forget password</a>
 
 </div>
