@@ -100,28 +100,41 @@
       align-items: center;
       justify-content: center;
     }
+    #insideMain
+    {
+      display: flex;
+      position: relative;
+      margin: 0 30%;
+    }
+
+    .innerDiv
+    {
+    }
   </style>
 </head>
 <body>
 <div class="container">
-  <form action="/createUser">
-    <h1 style="color: blue;font-weight: bold">Create User</h1>
-    <label>
-      Name : <input name="name" placeholder="Name" type="text" class="btn" required>
-      Place : <input name="place" placeholder="Place" type="text" class="btn" required>
-    </label><br>
+  <form action="/createNewBus">
+    <h1 style="color: blue;font-weight: bold">Create New Bus</h1>
+    <div id="insideMain">
+      <div class="innerDiv">
+        <label>
+          Name  <input name="name" placeholder="Name" type="text" class="btn" required> </label><br>
+        <label>
+          Phone <input name="phoneNo" placeholder="Phone" type="text" class="btn" required> </label><br>
 
-    <label>
-      Phone : <input name="phoneNo" placeholder="Phone" type="text" class="btn" required>
-      Email : <input name="email" placeholder="Email" type="email" class="btn" required>
-
-    </label><br>
-
-    <label>
-      UserName : <input name="userName" placeholder="UserName" type="text" class="btn" required>
-      Password : <input name="password" placeholder="password" type="email" class="btn" required>
-
-    </label><br>
+        <label>
+          UserName <input name="userName" placeholder="UserName" type="text" class="btn" required></label><br>
+      </div>
+      <div class="innerDiv">
+        <label>
+          Place  <input name="place" placeholder="Place" type="text" class="btn" required>        </label><br>
+        <label>
+          Email <input name="email" placeholder="Email" type="email" class="btn" required>        </label><br>
+        <label>
+          Password <input name="password" placeholder="password" type="password" class="btn" required>        </label><br>
+      </div>
+    </div>
     <p id="errorMessage" th:text="${errorMessage}" style="color: red"></p>
     <input type="submit" value="Register" class="btn1">
   </form>

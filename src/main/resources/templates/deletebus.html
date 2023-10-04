@@ -100,55 +100,15 @@
       align-items: center;
       justify-content: center;
     }
-    #insideMain
-    {
-      display: flex;
-      position: relative;
-      margin: 0 30%;
-    }
-
-    .innerDiv
-    {
-    }
   </style>
 </head>
 <body>
 <div class="container">
-  <form action="/createNewBus">
-    <h1 style="color: blue;font-weight: bold">Create New Bus</h1>
-    <div id="insideMain">
-      <div class="innerDiv">
-        <label>
-          BusNo  <input name="busNum" placeholder="BusNo" type="number" class="btn" required>
-        </label><br>
-
-        <label>
-          From  <input name="startingFrom" placeholder="From" type="text" class="btn" required>
-        </label><br>
-
-        <label>
-          StartingTime <input name="startingTime" placeholder="StartingTime" type="text" class="btn" required>
-        </label><br>
-
-      </div>
-      <div class="innerDiv">
-        <label>
-          BusName <input name="busName" placeholder="BusName" type="text" class="btn" required>
-        </label><br>
-
-        <label>
-          To <input name="destination" placeholder="To" type="text" class="btn" required>
-        </label><br>
-        <label>
-          ReachingTime <input name="reachingTime" placeholder="ReachingTime" type="text" class="btn" required>
-        </label><br>
-      </div>
-    </div>
-    <label>
-      NoOfSeats <br> <input name="noOfSeats" placeholder="NoOfSeats" type="number" class="btn" required max="40" min="30">
-    </label>
-    <p id="errorMessage" th:text="${errorMessage}" style="color: red"></p>
-    <input type="submit" value="Create" class="btn1">
+  <form action="/deleteBus">
+    <h4 style="color: darkgoldenrod;font-weight: bold; text-decoration: double underline; margin-bottom: 10px" >ENTER BUS NO</h4>
+    <input name="busNo" placeholder="Bus No" type="text" class="btn" required>
+    <input type="submit" value="Delete" class="btn1">
+    <p id="message" th:text="${message}" style="color: red"></p>
   </form>
 </div>
 </body>

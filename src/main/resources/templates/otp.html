@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <title>Hello</title>
+    <!--  <link rel="icon" type="images/x-icon" href="https://www.w3docs.com/favicon.ico" />-->
+    <!--  <link rel="icon"><i class="fad fa-bus"></i> />-->
+    <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
+    <script>
+        // window.onpageshow = function (event) {
+        //   if (event.persisted) {
+        //     location.reload();
+        //   }
+        // };
+    </script>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            overflow: hidden;
+            max-width: 1100px;
+            height: 500px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            width: 300px;
+            background-color: #ffffff;
+            color: black;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            font-size: 20px;
+        }
+        .btn:hover {
+            background-color: aliceblue;
+        }
+
+
+        .btn1 {
+            width: 100px;
+            background-color:#45a049;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .otp-input {
+            width: 2rem; /* Adjust the width as needed */
+            height: 2rem;
+            text-align: center;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter OTP</h1>
+        <form action="/verifyOTP">
+            <input type="text" class="otp-input" name="digit1" maxlength="1" oninput="nextInput(this)" />
+            <input type="text" class="otp-input" name="digit2" maxlength="1" oninput="nextInput(this)" />
+            <input type="text" class="otp-input" name="digit3" maxlength="1" oninput="nextInput(this)" />
+            <input type="text" class="otp-input" name="digit4" maxlength="1" /><br>
+            <p id="errorMessage" th:text="${errorMessage}" style="color: red"></p>
+            <input type="submit" value="submit" class="btn1">
+        </form>
+
+    </div>
+
+    <script>
+        function nextInput(currentInput) {
+            if (currentInput.value.length === currentInput.maxLength) {
+                const nextInput = currentInput.nextElementSibling;
+                if (nextInput) {
+                    nextInput.focus();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
